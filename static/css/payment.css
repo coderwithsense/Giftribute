@@ -1,0 +1,295 @@
+.payment-body-container{
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem 3rem 5rem;
+    background-color: #eee;
+}
+
+.left-side-payment, .right-s{
+    margin: 0 1rem;
+    background-color: #fff;
+}
+
+.container{
+    padding: 1rem;
+    margin: 1rem 0;
+    box-shadow: 5px 5px 5px #d3d3d3;
+}
+
+   .green{
+       color: limegreen;
+   }
+
+   .section2{
+       border-bottom: 1PX SOLID darkgray;
+     padding:10px 10px;
+       border-radius: 5px;
+       width: 300px;
+       height:200px ;
+       position: sticky;
+       top: 8rem;
+       background-color: white;
+   }
+   
+   .row-1{
+       margin-top: 20px;
+       border-radius: 4PX;
+       border:NONE;
+       border-top: 1px solid darkgray;
+       border-bottom: 1PX SOLID darkgray;
+       width: 800px;
+       height: 60px;
+       display: flex;
+       justify-content: space-between;
+       background-color: white;
+   
+   }
+   .left{
+      
+       display: flex;
+       gap: 20px;
+   }
+   .right{
+      
+       display: flex;
+       gap: 10px;
+       padding-top: 8px;
+   }
+   .index{
+       
+       color:white;
+       margin-top: 10px;
+       text-align: center;
+       background-color: rgb(80, 122, 80);
+       border-radius: 4px;
+       border-top-left-radius: 0;
+       border-bottom-left-radius: 0;
+       width: 30px;
+       height: 20px;
+       
+       padding-bottom: 20px;
+     
+   }
+   .name{
+      font-size: 14PX;
+      font-weight: BOLD;
+       padding-top: 25px;
+       width: max-content;
+   }
+   .ico{
+       padding-top: 20px;
+   }
+   .price{
+       width: 100%;
+       height: 211px;
+   }
+   .heading{
+       width: 220px;
+       height: 20px;
+       color: #222222;
+       font-size: 16px;
+       font-family: sans-serif;
+       margin: 0px 0px 10px 0px;
+   }
+   .row2{
+       display: flex;
+      width: 100%;
+      height: 25px;
+       justify-content: space-between;
+       flex-direction: row;
+   
+   }
+   .left2{
+       color: #555555;
+       font-size: 14px;
+       margin: 0px 0px 9px 0px;
+       height: 18px;
+      
+   }
+   .right2{
+       width: 42px;
+       height: 16px;
+       font-size: 14px;
+   }
+   .total{
+       margin: 26px 0px 0px 0px;
+       width: 100%;
+       height: 30px;
+   }
+   .total-left,.total-right{
+       margin: 0px 0px 10px 0px;
+       width: 50px;
+       height: 20px;
+   color: #222222;
+   font-size: 16px;
+   }
+   #gifts{
+       width: 70px;
+       height: 45px;
+       border: none;
+       font-weight: bold;
+   }
+.order-heading{
+    text-transform: uppercase;
+    color: #222;
+    font-size: 16px;
+    margin-bottom: 15px;
+    font-weight: 500;
+}
+
+/* .card-shadow{
+    box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
+} */
+
+.select-container {
+    position: relative;
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  #occasion-select {
+    width: 100%;
+    padding: 12px;
+    border-radius: 4px;
+    border: none;
+    background-color: #f2f2f2;
+    font-size: 16px;
+    appearance: none;
+  }
+  
+  #occasion-select:before {
+    content: '\f006';
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 20px;
+    pointer-events: none;
+  }
+  
+  #occasion-select option {
+    color: #000;
+    padding: 12px;
+  }
+  
+
+
+  
+.address-card{
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-between;
+    background-color: #fff9d8;
+    box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+    width: 800px;
+    border: 0.2px solid rgb(238, 235, 235);
+}
+
+.address-heading{
+    display:inline-block;
+    font-weight: 400;
+    font-size: 1rem;
+    margin-top: 18px;
+    line-height: 10%;
+}
+.address-radio-button{
+    width: 20px;
+    height: 20px;
+    margin: 5px;
+    
+    accent-color: rgb(236, 109, 50);
+}
+.select-btn{
+    cursor: none;
+    border: none;
+    color: black;
+    background-color: lightgray;
+    font-size: 0.6rem;
+    border-radius: 3px;
+    margin-left: 10px;
+    
+}
+.offer{
+    color:red;
+}
+.paymentcontainer{
+    margin-top:30px;
+    background-color: white;
+    /* box-shadow: 3px 3px 5px 3px rgb(161, 159, 159); */
+    /* box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px; */
+    
+    padding-left: 35px;
+    padding-right: 35px;
+    border-radius: 5px;
+    padding-top: 25px;
+    padding-bottom: 25px;
+    width: 980px;
+}
+.paytmbox{
+    background-color:white;
+    width:220px;
+    border-radius:3px;
+    padding-left: 30px;
+    padding-top: 10px;
+    padding-bottom: 8px;
+    box-shadow: 1px 1px 2px 1px rgb(161, 159, 159);
+}
+.paytmbtn
+{
+  
+    border-radius:3px;
+    height: 45px;
+    background-color:rgba(255, 106, 0, 0.927);
+    width:260px;
+    margin-top: 10px;
+    margin-bottom: 1p
+    box-shadow: 1px 1px 2px 1px rgb(161, 159, 159);x;
+
+}
+.btn1{
+    
+    color:white;
+    margin-left:60px;
+    margin-top:10px;
+    border:none;
+    baground-color:white;kk}color:white;
+    
+}
+
+.lef{
+    display: flex;
+   
+}
+
+
+.radio-button
+{
+    display: inline-block;
+    /* width: ; */
+    height:  70px;
+    float: left;
+    padding-top: 10px;
+    padding: 15px;
+}
+.icon{
+    padding-top: 15px;
+    padding-right: 20px;
+}
+
+.heading{
+    width: 500px;
+}
+
+.select-occasion-main-div{
+    display:flex;
+    justify-content: space-between;
+}
+
+/* display-flex
+justy-content:
+spacee-between */
+
+

@@ -1,0 +1,75 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+<!-- Cart Start -->
+<h2>Order Summary</h2>
+<div class="container-fluid pt-5">
+    <div class="row px-xl-5">
+        <div class="col-lg-8 table-responsive mb-5">
+            <table class="table table-bordered text-center mb-0">
+                <thead class="bg-secondary text-dark">
+                    <tr>
+                        <th>Products</th>
+                        <th>Price</th>
+                        <th>Quantity</th>
+                        <th>Total</th>
+                        <th>Remove</th>
+                    </tr>
+                </thead>
+                <tbody class="align-middle">
+                    {% for order_item in object.items.all %}
+                        <tr>
+                            <td class="align-middle"><img src="img/product-1.jpg" alt="" style="width: 50px;">{{order_item.item.title}}</td>
+                            
+                            {% if order_item.item.discount_price %}
+                                <td class="align-middle">{{order_item.item.discount_price}} (Amount saved: {{order_item.get_saved_amount}})</td>
+                            {% else %}
+                                <td class="align-middle">{{order_item.item.price}}</td>
+                            {% endif %}
+
+                            <td class="align-middle">{{order_item.quantity}}</td>
+                            <td class="align-middle">{{order_item.get_final_price}}</td>
+                            <td class="align-middle"><a class="btn btn-sm btn-primary" href="{{order_item.item.get_remove_from_cart_url}}"><i class="fa fa-times"></i></a></td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        <div class="col-lg-4">
+            <form class="mb-5" action="">
+                <div class="input-group">
+                    <input type="text" class="form-control p-4" placeholder="Coupon Code">
+                    <div class="input-group-append">
+                        <button class="btn btn-primary">Apply Coupon</button>
+                    </div>
+                </div>
+            </form>
+            {% if object.get_total %}
+            <div class="card border-secondary mb-5">
+                <div class="card-header bg-secondary border-0">
+                    <h4 class="font-weight-semi-bold m-0">Cart Summary</h4>
+                </div>
+                <div class="card-body">
+                    <div class="d-flex justify-content-between mb-3 pt-1">
+                        <h6 class="font-weight-medium">Subtotal</h6>
+                        <h6 class="font-weight-medium">{{object.get_total}}</h6>
+                    </div>
+                    <div class="d-flex justify-content-between">
+                        <h6 class="font-weight-medium">Shipping</h6>
+                    </div>
+                </div>
+                <div class="card-footer border-secondary bg-transparent">
+                    <div class="d-flex justify-content-between mt-2">
+                        <h5 class="font-weight-bold">Total</h5>
+                        <h5 class="font-weight-bold">{{object.get_total}}</h5>
+                    </div>
+                    <a class="btn btn-block btn-primary my-3 py-3" href="{% url 'core:checkout-page' %}">Proceed To Checkout</a>
+                </div>
+            </div>
+            {% endif %}
+        </div>
+    </div>
+</div>
+<!-- Cart End -->
+{% endblock content %}
