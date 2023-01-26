@@ -13,7 +13,7 @@ from .forms import checkoutForm
 class SearchResults(ListView):
     model = Item
     context_object_name = "items"
-    paginate_by = 10
+    # paginate_by = 10
     template_name = "search.html"
 
     def get_queryset(self):

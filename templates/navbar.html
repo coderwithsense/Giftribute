@@ -64,12 +64,20 @@
                 <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                <div class="collapse navbar-collapse justify-content-between mb-3 mt-3" id="navbarCollapse">
-                    <div class="navbar-nav ml-auto py-0">
-                        <a href="" class="nav-item nav-link">Login</a>
-                        <a href="" class="nav-item nav-link">Register</a>
+                {% if request.user.is_authenticated %}
+                    <div class="collapse navbar-collapse justify-content-between mb-3 mt-3" id="navbarCollapse">
+                        <div class="navbar-nav ml-auto py-0">
+                            <a href="{% url 'account_logout' %}" class="nav-item nav-link">Logout</a>
+                        </div>
                     </div>
-                </div>
+                {% else %}
+                    <div class="collapse navbar-collapse justify-content-between mb-3 mt-3" id="navbarCollapse">
+                        <div class="navbar-nav ml-auto py-0">
+                            <a href="{% url 'account_login' %}" class="nav-item nav-link">Login</a>
+                            <a href="{% url 'account_signup' %}" class="nav-item nav-link">Register</a>
+                        </div>
+                    </div>
+                {% endif %}
             </nav>
       
             <!-- Categories Section start -->
@@ -80,30 +88,23 @@
               </a>
               <nav class="collapse show navbar navbar-light p-0" id="navbar-vertical">
                 <div class="navbar-nav category-nav w-100">
-                  <div class="nav-item category-nav-item dropdown">
-                    <a href="#" class="nav-link" data-toggle="dropdown">Dresses <i class="fa fa-angle-down float-right mt-1 ml-2"></i></a>
-                    <div class="dropdown-menu position-absolute bg-secondary border-0 rounded-0 m-0">
-                      <a href="" class="dropdown-item">Men's Dresses</a>
-                      <a href="" class="dropdown-item">Women's Dresses</a>
-                      <a href="" class="dropdown-item">Baby's Dresses</a>
-                    </div>
-                  </div>
-                  <a href="" class="nav-item category-nav-item nav-link">Shirts</a>
-                  <a href="" class="nav-item category-nav-item nav-link">Jeans</a>
-                  <a href="" class="nav-item category-nav-item nav-link">Swimwear</a>
-                  <a href="" class="nav-item category-nav-item nav-link">Sleepwear</a>
-                  <a href="" class="nav-item category-nav-item nav-link">Sportswear</a>
-                  <a href="" class="nav-item category-nav-item nav-link">Jumpsuits</a>
-                  <a href="" class="nav-item category-nav-item nav-link">Blazers</a>
-                  <a href="" class="nav-item category-nav-item nav-link">Jackets</a>
-                  <a href="" class="nav-item category-nav-item nav-link">Shoes</a>
+                  <a href="search/?q=teddy" class="nav-item category-nav-item nav-link">Teddy</a>
+                  <a href="search/?q=cushions" class="nav-item category-nav-item nav-link">Cushions</a>
+                  <a href="search/?q=couples" class="nav-item category-nav-item nav-link">Couples</a>
+                  <a href="search/?q=bubu dudu" class="nav-item category-nav-item nav-link">Bubu Dudu</a>
+                  <a href="search/?q=rose" class="nav-item category-nav-item nav-link">Rose</a>
+                  <a href="search/?q=valentine" class="nav-item category-nav-item nav-link">Valentine</a>
+                  <a href="search/?q=pottery" class="nav-item category-nav-item nav-link">Pottery</a>
+                  <a href="search/?q=candles" class="nav-item category-nav-item nav-link">Candles</a>
+                  <a href="search/?q=bag" class="nav-item category-nav-item nav-link">Bag</a>
+                  <a href="search/?q=pastry" class="nav-item category-nav-item nav-link">Pastry</a>
                 </div>
               </nav>
             </div>
           </div>
         </div>
       
-        <div class="mobile_view">
+        {% comment %} <div class="mobile_view">
           <nav>
             <div class="scrollmenu">
               <a href="" class="p-2">Shirts</a>
@@ -117,7 +118,7 @@
               <a href="" class="p-2">Shoes</a>
             </div>
           </nav>
-        </div>
+        </div> {% endcomment %}
       </div>
 
 </div>

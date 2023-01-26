@@ -1,1 +1,8 @@
-<h1>Thank You</h1>
+
+
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+<h1>Thank You for ordering with us. The pleasent gift is on it's way. Till then you can checkout our other <a href="{% url 'core:item-list' %}">products</h1>
+{% endblock content %}
