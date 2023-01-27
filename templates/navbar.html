@@ -88,16 +88,16 @@
               </a>
               <nav class="collapse show navbar navbar-light p-0" id="navbar-vertical">
                 <div class="navbar-nav category-nav w-100">
-                  <a href="search/?q=teddy" class="nav-item category-nav-item nav-link">Teddy</a>
-                  <a href="search/?q=cushions" class="nav-item category-nav-item nav-link">Cushions</a>
-                  <a href="search/?q=couples" class="nav-item category-nav-item nav-link">Couples</a>
-                  <a href="search/?q=bubu dudu" class="nav-item category-nav-item nav-link">Bubu Dudu</a>
-                  <a href="search/?q=rose" class="nav-item category-nav-item nav-link">Rose</a>
-                  <a href="search/?q=valentine" class="nav-item category-nav-item nav-link">Valentine</a>
-                  <a href="search/?q=pottery" class="nav-item category-nav-item nav-link">Pottery</a>
-                  <a href="search/?q=candles" class="nav-item category-nav-item nav-link">Candles</a>
-                  <a href="search/?q=bag" class="nav-item category-nav-item nav-link">Bag</a>
-                  <a href="search/?q=pastry" class="nav-item category-nav-item nav-link">Pastry</a>
+                  <a href="{% url 'core:search_results' %}?q=teddy" class="nav-item category-nav-item nav-link">Teddy</a>
+                  <a href="{% url 'core:search_results' %}?q=cushions" class="nav-item category-nav-item nav-link">Cushions</a>
+                  <a href="{% url 'core:search_results' %}?q=couples" class="nav-item category-nav-item nav-link">Couples</a>
+                  <a href="{% url 'core:search_results' %}?q=bubu dudu" class="nav-item category-nav-item nav-link">Bubu Dudu</a>
+                  <a href="{% url 'core:search_results' %}?q=rose" class="nav-item category-nav-item nav-link">Rose</a>
+                  <a href="{% url 'core:search_results' %}?q=valentine" class="nav-item category-nav-item nav-link">Valentine</a>
+                  <a href="{% url 'core:search_results' %}?q=pottery" class="nav-item category-nav-item nav-link">Pottery</a>
+                  <a href="{% url 'core:search_results' %}?q=candles" class="nav-item category-nav-item nav-link">Candles</a>
+                  <a href="{% url 'core:search_results' %}?q=bag" class="nav-item category-nav-item nav-link">Bag</a>
+                  <a href="{% url 'core:search_results' %}?q=pastry" class="nav-item category-nav-item nav-link">Pastry</a>
                 </div>
               </nav>
             </div>
