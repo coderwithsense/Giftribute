@@ -1,32 +1,21 @@
-body{
-    background-color: whitesmoke;
+.checkout-left, .checkout-right{
+    margin: 0 1%;
 }
-.section{
- display: flex;
- margin-left: 100px;
+
+.checkout-left{
+    width: 75%;
 }
-.green{
-    color: limegreen;
-}
-.section1{
-    padding-left: 50px;
-    background-color: whitesmoke;
-    
-    border-radius: 3px;
-    width: 900px;
-    height: 100%;
-    
-}
-.section2{
-    margin-top: 20px;
-    border-bottom: 1PX SOLID darkgray;
-  padding:10px 10px;
+
+.checkout-right{
+    padding:10px 10px;
     border-radius: 5px;
-    width: 300px;
-    height:200px ;
-    
-    background-color: white;
+    flex: 25%;
+    margin: 1% 0;
+    height:200px;
+    box-shadow: 0 2px 5px #888;
+    background-color: #fff;
 }
+
 .row-1{
     margin-top: 20px;
     border-radius: 4PX;

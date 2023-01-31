@@ -1,0 +1,77 @@
+
+
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<head>
+    <link rel="stylesheet" href="{% static 'css/user.css'%}">
+</head>
+<!-- Header start -->
+<header class="header">
+    <div class="name-location">
+      <h1>{{user.username}}</h1>
+      <h6>{{user.email}}</h6>
+      
+    </div>
+    
+    <div class="signout">
+      <button class="sign-out-button">SIGN OUT</button>
+    </div>
+   
+  </header>
+<!-- Header End -->
+
+<!-- main content start -->
+<div class="user-main-container">
+    <!-- sidebar start -->
+    <div class="sidebar">
+        <div class="sidebar-desktop">
+            <ul>
+                <a href="{% url 'core:profile-view' %}"><li>Profile</li></a>
+                <a href="{% url 'core:orders-view' %}"><li style="border:1.3px solid black;">Order</li></a>
+                <a href=""><li>Offer</li></a>
+            </ul>
+        </div>
+        <div class="sidebar-mobile">
+            <button class="dropbtn">Options <i class="fas fa-angle-down"></i></button>
+            <div class="dropdown-content">
+               <a href="{% url 'core:profile-view' %}"><li style="border:1.3px solid black;">Profile</li></a>
+               <a href="{% url 'core:orders-view' %}"><li>Order</li></a>
+               <a href=""><li>Offer</li></a>
+            </div>
+          </div>                  
+    </div>
+    <!-- sidebar end -->
+    
+    <!-- order content start -->
+    <div class="order-container">
+        <div class="container-heading">
+            <h2>Orders</h2>
+            <span>{{ orders.count }} items</span>
+        </div>
+        {% for order in orders %}
+            <div class="order-item-container">
+                <div class="order-detail">
+                    {% for item in order.items.all %}
+                    <h3>{{item}}</h3>
+                    {% endfor %}
+                    <a href="#">view order <i class="fas fa-arrow-right"></i></a>
+                </div>
+                {% if order.delivered %}
+                    <span class="order-status"><i class="fas fa-circle order-status-cancel" style='color:#31d41c'></i>Delivered</span>
+                {% else %}
+                    <span class="order-status"><i class="fas fa-circle order-status-cancel"></i>On the way</span>
+                {% endif %}
+                {% comment %} <div class="order-images">
+                    <img src="./img/order-1.jpg" alt="order-image">
+                    <img src="./img/order-2.jpg" alt="order-image">
+                </div> {% endcomment %}
+            </div>
+        {% endfor %}
+    </div>
+    <!-- order content end -->
+    
+</div>
+
+{% endblock %}

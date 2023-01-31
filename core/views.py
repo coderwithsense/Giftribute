@@ -118,6 +118,22 @@ class ItemDetailView(DetailView):
 #         return Quote.objects.filter(quote__search=query)
 
 @login_required
+def view_profile(request):
+    context={
+        'user': request.user
+    }
+    return render(request, 'profile.html', context)
+
+@login_required
+def orders_view(request):
+    orders = Order.objects.filter(ordered=True, user=request.user)
+    # orders = get_object_or_404(Order, ordered=True, user=request.user)
+    context={
+        'orders': orders
+    }
+    return render(request, 'orders.html', context)
+
+@login_required
 def add_to_cart(request, slug):
     item = get_object_or_404(Item, slug=slug)
     order_item, created = OrderItem.objects.get_or_create(

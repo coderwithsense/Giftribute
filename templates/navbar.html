@@ -23,8 +23,8 @@
     <!-- Topbar Start -->
         <div class="row align-items-center py-3 px-xl-5">
             <div class="col-lg-3 d-none d-lg-block">
-                <a class="navbar-brand" href="#">
-                    <h1 class="m-0 display-5 font-weight-semi-bold"><span class="text-primary font-weight-bold border px-3 mr-1">Gift</span>Tribute</h1>
+                <a href="" class="text-decoration-none pl-3">
+                    <img src="{% static 'img/logo.png' %}" alt="logo" width="70%" />
                 </a>
             </div>
             <div class="col-lg-6 col-6 text-left">
@@ -79,28 +79,117 @@
                     </div>
                 {% endif %}
             </nav>
-      
-            <!-- Categories Section start -->
-            <div class="col-lg category-section desktop_view">
-              <a class="btn categories-tab shadow-none align-items-center justify-content-between bg-primary text-white w-100" data-toggle="collapse" href="#navbar-vertical" style="height: 65px; margin-top: -1px; padding: 0 30px;">
-                  <h6 class="m-0">Categories</h6>
-                  <i class="fa fa-angle-down text-dark"></i>
-              </a>
-              <nav class="collapse show navbar navbar-light p-0" id="navbar-vertical">
-                <div class="navbar-nav category-nav w-100">
-                  <a href="{% url 'core:search_results' %}?q=teddy" class="nav-item category-nav-item nav-link">Teddy</a>
-                  <a href="{% url 'core:search_results' %}?q=cushions" class="nav-item category-nav-item nav-link">Cushions</a>
-                  <a href="{% url 'core:search_results' %}?q=couples" class="nav-item category-nav-item nav-link">Couples</a>
-                  <a href="{% url 'core:search_results' %}?q=bubu dudu" class="nav-item category-nav-item nav-link">Bubu Dudu</a>
-                  <a href="{% url 'core:search_results' %}?q=rose" class="nav-item category-nav-item nav-link">Rose</a>
-                  <a href="{% url 'core:search_results' %}?q=valentine" class="nav-item category-nav-item nav-link">Valentine</a>
-                  <a href="{% url 'core:search_results' %}?q=pottery" class="nav-item category-nav-item nav-link">Pottery</a>
-                  <a href="{% url 'core:search_results' %}?q=candles" class="nav-item category-nav-item nav-link">Candles</a>
-                  <a href="{% url 'core:search_results' %}?q=bag" class="nav-item category-nav-item nav-link">Bag</a>
-                  <a href="{% url 'core:search_results' %}?q=pastry" class="nav-item category-nav-item nav-link">Pastry</a>
+    
+            <!-- categories section mobile start -->
+                <div id="sidebar" class="sidebar mobile_view collapse">
+                    <div class="sidebar-top">
+                        <button type="button" class="navbar-toggler sidebar_button" data-toggle="collapse" data-target="#sidebar">
+                            <i class="fas fa-times"></i>
+                        </button>
+                        <ul class="nav_list">
+                            <li>
+                                <a href="#">
+                                    <span class="links_name">Shirts</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <span class="links_name">Jeans</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <span class="links_name">Sleepwear</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <span class="links_name">Shirts</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <span class="links_name">Shirts</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <span class="links_name">Shirts</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <span class="links_name">Shirts</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <span class="links_name">Shirts</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <span class="links_name">Shirts</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <span class="links_name">Shirts</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="authentication_buttons">
+                        <span class="auth_buttons">Login</span>
+                        <span class="auth_buttons">Signup</span>
+                    </div>
                 </div>
-              </nav>
-            </div>
+
+                <!-- categories section mobile end -->
+                </nav>
+
+                <!-- Categories Section desktop start -->
+                <div class="col-lg category-section desktop_view">
+                    <a class="btn categories-tab shadow-none align-items-center justify-content-between bg-primary text-white w-100" data-toggle="collapse" href="#navbar-vertical" style="height: 65px; margin-top: -1px; padding: 0 30px;">
+                        <h6 class="m-0">Categories</h6>
+                        <i class="fa fa-angle-down text-dark"></i>
+                    </a>
+                    <nav class="collapse show navbar navbar-light p-0" id="navbar-vertical">
+                        <div class="navbar-nav category-nav w-100">
+                            <a href="{% url 'core:search_results' %}?q=teddy" class="nav-item category-nav-item nav-link">Teddy</a>
+                            <a href="{% url 'core:search_results' %}?q=cushions" class="nav-item category-nav-item nav-link">Cushions</a>
+                            <a href="{% url 'core:search_results' %}?q=couples" class="nav-item category-nav-item nav-link">Couples</a>
+                            <a href="{% url 'core:search_results' %}?q=bubu dudu" class="nav-item category-nav-item nav-link">Bubu Dudu</a>
+                            <a href="{% url 'core:search_results' %}?q=rose" class="nav-item category-nav-item nav-link">Rose</a>
+                            <a href="{% url 'core:search_results' %}?q=valentine" class="nav-item category-nav-item nav-link">Valentine</a>
+                            <a href="{% url 'core:search_results' %}?q=pottery" class="nav-item category-nav-item nav-link">Pottery</a>
+                            <a href="{% url 'core:search_results' %}?q=candles" class="nav-item category-nav-item nav-link">Candles</a>
+                            <a href="{% url 'core:search_results' %}?q=bag" class="nav-item category-nav-item nav-link">Bag</a>
+                            <a href="{% url 'core:search_results' %}?q=pastry" class="nav-item category-nav-item nav-link">Pastry</a>
+                            <a href="{% url 'core:search_results' %}?q=teddy" class="nav-item category-nav-item nav-link">Teddy</a>
+                            <a href="{% url 'core:search_results' %}?q=cushions" class="nav-item category-nav-item nav-link">Cushions</a>
+                            <a href="{% url 'core:search_results' %}?q=couples" class="nav-item category-nav-item nav-link">Couples</a>
+                            <a href="{% url 'core:search_results' %}?q=bubu dudu" class="nav-item category-nav-item nav-link">Bubu Dudu</a>
+                            <a href="{% url 'core:search_results' %}?q=rose" class="nav-item category-nav-item nav-link">Rose</a>
+                            <a href="{% url 'core:search_results' %}?q=valentine" class="nav-item category-nav-item nav-link">Valentine</a>
+                            <a href="{% url 'core:search_results' %}?q=pottery" class="nav-item category-nav-item nav-link">Pottery</a>
+                            <a href="{% url 'core:search_results' %}?q=candles" class="nav-item category-nav-item nav-link">Candles</a>
+                            <a href="{% url 'core:search_results' %}?q=bag" class="nav-item category-nav-item nav-link">Bag</a>
+                            <a href="{% url 'core:search_results' %}?q=pastry" class="nav-item category-nav-item nav-link">Pastry</a>
+                            <a href="{% url 'core:search_results' %}?q=teddy" class="nav-item category-nav-item nav-link">Teddy</a>
+                            <a href="{% url 'core:search_results' %}?q=cushions" class="nav-item category-nav-item nav-link">Cushions</a>
+                            <a href="{% url 'core:search_results' %}?q=couples" class="nav-item category-nav-item nav-link">Couples</a>
+                            <a href="{% url 'core:search_results' %}?q=bubu dudu" class="nav-item category-nav-item nav-link">Bubu Dudu</a>
+                            <a href="{% url 'core:search_results' %}?q=rose" class="nav-item category-nav-item nav-link">Rose</a>
+                            <a href="{% url 'core:search_results' %}?q=valentine" class="nav-item category-nav-item nav-link">Valentine</a>
+                            <a href="{% url 'core:search_results' %}?q=pottery" class="nav-item category-nav-item nav-link">Pottery</a>
+                            <a href="{% url 'core:search_results' %}?q=candles" class="nav-item category-nav-item nav-link">Candles</a>
+                            <a href="{% url 'core:search_results' %}?q=bag" class="nav-item category-nav-item nav-link">Bag</a>
+                            <a href="{% url 'core:search_results' %}?q=pastry" class="nav-item category-nav-item nav-link">Pastry</a>
+                        </div>
+                    </nav>
+                </div>
+                <!-- Categories section desktop end -->
           </div>
         </div>
       

@@ -1,8 +1,4 @@
-.scrollmenu{
-    overflow: auto;
-    white-space:nowrap;
-    text-align: center;
-}
+
 .shop-detail-container{
     display: flex;
     justify-content: space-between;

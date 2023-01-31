@@ -1,5 +1,5 @@
 from django.urls import path
-from .views import HomeView, OrderSummaryView, ItemDetailView, checkout, add_to_cart, remove_from_cart, SearchResults, confirm_order, thank_you
+from .views import HomeView, OrderSummaryView, ItemDetailView, checkout, view_profile, orders_view, add_to_cart, remove_from_cart, SearchResults, confirm_order, thank_you
 from django.conf import settings
 from django.conf.urls.static import static
 
@@ -14,6 +14,8 @@ urlpatterns = [
     path('remove-from-cart/<slug>/', remove_from_cart, name='remove-from-cart'),
     path('confirm-order/', confirm_order, name='confirm-order'),
     path('thank_you', thank_you, name="thank-you"),
+    path('profile/', view_profile, name="profile-view"),
+    path('orders/', orders_view, name="orders-view"),
 
     path('search/', SearchResults.as_view(), name="search_results"),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

@@ -5,7 +5,7 @@
  * Copyright 2011-2020 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
  */
- :root {
+:root {
   --blue: #007bff;
   --indigo: #6610f2;
   --purple: #6f42c1;
@@ -40,6 +40,71 @@
 *::before,
 *::after {
   box-sizing: border-box;
+}
+.pr{
+  border: 5px solid whitesmoke;
+  border-radius: 5px;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
+    background-color: white;
+  }
+  .pr:hover {
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+  }
+  .pr:hover .bottom {
+  transform: translateY(-20px) ;
+  background: rgba(255,255,255,0.7);
+  }
+  .bottom {
+   transition: all 250ms ease-in-out;
+    background-color: white;
+   
+  
+    overflow: hidden;
+  }
+  
+  .product-item:hover .product-img img{
+    transform:none !important;
+  }
+  
+.photo{
+  width: 100%;
+  height: auto;
+  opacity:90%;
+  object-fit: cover;
+}
+.photo:hover{
+  opacity: 100%;
+}
+.parent{
+  position: relative;
+}
+
+.child{
+  position: absolute;
+  top: 30%;
+  left: 10%;
+  width: 50%;
+  font-weight:bold;
+  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-size:2.5vw;
+  color: brown;
+}
+.child_1{
+  position: absolute;
+  top: 30%;
+  left: 5%;
+  text-align: center;
+  font-weight:bold;
+  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  width: 40%;
+  font-size:1.9vw;
+  color: brown;
+}
+.pic_buttons{
+  width: 40%;
+  align-items: flex-start;
+  font-size: 1.3vw;
+  border-radius: 10px;
 }
 
 .product-listing_reviewHeading{
@@ -723,7 +788,7 @@ pre code {
   margin-left: auto;
 }
 
-@media screen and (max-width: 1080px){
+/* @media screen and (max-width: 1080px){
   .category-nav-item{
     padding: 0.2rem 0.7rem;
   }
@@ -733,7 +798,7 @@ pre code {
   .category-nav-item{
     padding: 0.2rem 0.4rem;
   }
-}
+} */
 
 @media screen and (max-width: 875px) {
   .category-section > .btn {
@@ -742,9 +807,6 @@ pre code {
   .category-nav{
     flex-direction: column !important;
     padding: 0 1.5rem !important;
-  }
-  .carousel-inner > div{
-    height: 100% !important;
   }
 }
 
@@ -4178,11 +4240,11 @@ input[type="button"].btn-block {
 
 .category-section{
   /* background-color: #d3d3d3; */
-  box-shadow: 1px 1px 10px #d3d3d3;
-  padding: 1rem;
-  margin: 0.5rem 0;
-  border: 2px solid #D19C97;
   border-radius: 10px;
+  border: 2px solid #D19C97;
+  box-shadow: 1px 1px 10px #d3d3d3;
+  padding: 1rem 2rem;
+  margin: 0.5rem 0;
 }
 
 .navbar-nav {
@@ -4190,7 +4252,9 @@ input[type="button"].btn-block {
   flex-direction: column;
   padding-left: 0;
   margin-bottom: 0;
+  justify-content: space-between;
   list-style: none;
+  overflow-x: scroll;
 }
 
 /* .navbar-nav .nav-link {
@@ -6002,10 +6066,6 @@ a.close.disabled {
   position: relative;
   width: 100%;
   overflow: hidden;
-}
-
-.carousel-inner > div{
-  height: 410px;
 }
 
 .carousel-inner::after {
@@ -9744,3 +9804,97 @@ a.text-dark:hover, a.text-dark:focus {
     transform: translateY(-15px);
   }
 }
+
+.mobile_view{
+  display: none !important;
+}
+
+@media only screen and (max-width: 991px){
+  .desktop_view{
+    display: none !important;
+  }
+  .mobile_view{
+    display: flex !important;
+  }
+}
+
+.dropdown > .nav-link{
+  width: 90px;
+}
+
+.sidebar{
+  background-color: #fff;
+  top: 0;
+  right: 0;
+  height: 100vh;
+  display: none !important;
+  padding: 5rem 0 0;
+  position: fixed;
+  z-index: 10;
+  justify-content: space-between;
+  flex-direction: column;
+  transition: all 0.5s ease;
+}
+
+/* .sidebar.collapse{
+  display: none !important;
+} */
+
+.sidebar.show{
+  display: flex !important;
+  width: 50%;
+}
+
+.sidebar-top{
+  padding: 0 0 0 1rem;
+}
+
+.sidebar-top > ul {
+  list-style-type: none;
+  margin: 1rem 0 0;
+  padding: 0;
+  overflow-y: scroll;
+  height: 60vh;
+}
+
+.sidebar-top li {
+  padding: 1rem 0;
+}
+
+.sidebar-top li:hover{
+  background-color: #d2d2d2;
+}
+
+.fa-times{
+  font-size: 1.5rem;
+}
+
+/* .fa-tshirt{
+  padding: 0 0.5rem;
+  font-size: 1.2rem;
+} */
+
+.authentication_buttons{
+  background-color: #000;
+    padding: 1rem 0 1rem 2rem;
+    display: flex;
+    flex-direction: column;
+    color: #fff;
+    cursor: pointer;
+}
+
+.authentication_buttons > span{
+  padding: 0.5rem 0;
+  display: block;
+}
+
+.authentication_buttons > span:hover{
+  color: #d2d2d2;
+}
+
+/* .scrollmenu{
+  overflow: auto;
+  white-space:nowrap;
+  text-align: center;
+} */
+

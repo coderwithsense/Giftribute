@@ -1,0 +1,68 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+    <head>
+        <!-- Font Awesome -->
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+    
+        <link rel="stylesheet" href="{% static 'css/user.css' %}">
+    </head>
+    
+        <!-- Header start -->
+        <header class="header">
+            <div class="name-location">
+              <h1>{{user.username}}</h1>
+              <h6>{{user.email}}</h6>
+              
+            </div>
+            
+            <div class="signout">
+              <button class="sign-out-button">SIGN OUT</button>
+            </div>
+           
+          </header>
+        <!-- Header End -->
+
+        <!-- main content start -->
+        <div class="user-main-container">
+            <!-- sidebar start -->
+            <div class="sidebar">
+                <div class="sidebar-desktop">
+                    <ul>
+                        <a href="{% url 'core:profile-view' %}"><li style="border:1.3px solid black;">Profile</li></a>
+                        <a href="{% url 'core:orders-view' %}"><li>Order</li></a>
+                        <a href=""><li>Offer</li></a>
+                    </ul>
+                </div>
+                <div class="sidebar-mobile">
+                    <button class="dropbtn">Options <i class="fas fa-angle-down"></i></button>
+                    <div class="dropdown-content">
+                       <a href="{% url 'core:profile-view' %}"><li style="border:1.3px solid black;">Profile</li></a>
+                       <a href="{% url 'core:orders-view' %}"><li>Order</li></a>
+                       <a href=""><li>Offer</li></a>
+                    </div>
+                  </div>                  
+            </div>
+            <!-- sidebar end -->
+
+            <!-- profile content start -->
+            <div class="profile-container">
+                <div class="profile-leftpart">
+                    <div class="image-container">
+                        <img src="./img/profile_image.jpg" alt="">
+                    </div>
+                </div>
+                <div class="profile-rightpart">
+                    <div class="edit"><a href="">Edit</a></div>
+                    <hr>
+                    <div class="email"><p>Email: himanshupoptani@12gmail.com <a href="{% url 'account_change_password' %}">(Change passsword)</a></p></div>
+                    <div class="d_o_b"><p>Joining date: {{user.date_joined}}</p></div>
+                    <div class="d_o_b"><p>Last Login: {{user.last_login}}</p></div>
+                    <div class="phone"><p>Phone Number: +91 943067854</p></div>
+                    <div class="country"><p> India</p></div>
+                </div>
+            </div>
+            <!-- profile content end -->
+        </div>
+{% endblock %}
