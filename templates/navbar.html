@@ -1,25 +1,11 @@
 {% load static %}
 
 <head>
-    <meta charset="utf-8">
-    <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <meta content="Free HTML Templates" name="keywords">
-    <meta content="Free HTML Templates" name="description">
-
-    <!-- Google Web Fonts -->
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet" /> 
-
-    <!-- Font Awesome -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet" />
-
-    <!-- Libraries Stylesheet -->
-    <link href="{% static 'lib/owlcarousel/assets/owl.carousel.min.css' %}" rel="stylesheet" />
-
     <!-- Customized Bootstrap Stylesheet -->
     <link href="{% static 'css/style.css' %}" rel="stylesheet" />
     <link href="{% static 'css/detail.css' %}" />
 </head>
+
     <!-- Topbar Start -->
         <div class="row align-items-center py-3 px-xl-5">
             <div class="col-lg-3 d-none d-lg-block">
@@ -67,6 +53,7 @@
                 {% if request.user.is_authenticated %}
                     <div class="collapse navbar-collapse justify-content-between mb-3 mt-3" id="navbarCollapse">
                         <div class="navbar-nav ml-auto py-0">
+                            <a href="{% url 'core:profile-view' %}" class="nav-item nav-link">Profile</a>
                             <a href="{% url 'account_logout' %}" class="nav-item nav-link">Logout</a>
                         </div>
                     </div>
@@ -168,24 +155,6 @@
                             <a href="{% url 'core:search_results' %}?q=pastry" class="nav-item category-nav-item nav-link">Pastry</a>
                             <a href="{% url 'core:search_results' %}?q=teddy" class="nav-item category-nav-item nav-link">Teddy</a>
                             <a href="{% url 'core:search_results' %}?q=cushions" class="nav-item category-nav-item nav-link">Cushions</a>
-                            <a href="{% url 'core:search_results' %}?q=couples" class="nav-item category-nav-item nav-link">Couples</a>
-                            <a href="{% url 'core:search_results' %}?q=bubu dudu" class="nav-item category-nav-item nav-link">Bubu Dudu</a>
-                            <a href="{% url 'core:search_results' %}?q=rose" class="nav-item category-nav-item nav-link">Rose</a>
-                            <a href="{% url 'core:search_results' %}?q=valentine" class="nav-item category-nav-item nav-link">Valentine</a>
-                            <a href="{% url 'core:search_results' %}?q=pottery" class="nav-item category-nav-item nav-link">Pottery</a>
-                            <a href="{% url 'core:search_results' %}?q=candles" class="nav-item category-nav-item nav-link">Candles</a>
-                            <a href="{% url 'core:search_results' %}?q=bag" class="nav-item category-nav-item nav-link">Bag</a>
-                            <a href="{% url 'core:search_results' %}?q=pastry" class="nav-item category-nav-item nav-link">Pastry</a>
-                            <a href="{% url 'core:search_results' %}?q=teddy" class="nav-item category-nav-item nav-link">Teddy</a>
-                            <a href="{% url 'core:search_results' %}?q=cushions" class="nav-item category-nav-item nav-link">Cushions</a>
-                            <a href="{% url 'core:search_results' %}?q=couples" class="nav-item category-nav-item nav-link">Couples</a>
-                            <a href="{% url 'core:search_results' %}?q=bubu dudu" class="nav-item category-nav-item nav-link">Bubu Dudu</a>
-                            <a href="{% url 'core:search_results' %}?q=rose" class="nav-item category-nav-item nav-link">Rose</a>
-                            <a href="{% url 'core:search_results' %}?q=valentine" class="nav-item category-nav-item nav-link">Valentine</a>
-                            <a href="{% url 'core:search_results' %}?q=pottery" class="nav-item category-nav-item nav-link">Pottery</a>
-                            <a href="{% url 'core:search_results' %}?q=candles" class="nav-item category-nav-item nav-link">Candles</a>
-                            <a href="{% url 'core:search_results' %}?q=bag" class="nav-item category-nav-item nav-link">Bag</a>
-                            <a href="{% url 'core:search_results' %}?q=pastry" class="nav-item category-nav-item nav-link">Pastry</a>
                         </div>
                     </nav>
                 </div>
