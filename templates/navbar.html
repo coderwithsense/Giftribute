@@ -131,10 +131,19 @@
                             </li>
                         </ul>
                     </div>
-                    <div class="authentication_buttons">
-                        <span class="auth_buttons">Login</span>
-                        <span class="auth_buttons">Signup</span>
-                    </div>
+                    {% if user.is_authenticated %}
+                        <div class="authentication_buttons">
+                            <span class="auth_buttons"><a href="{% url 'core:profile-view' %}">Profile</a></span>
+                            <span class="auth_buttons"><a href="{% url 'core:orders-view' %}">Orders</a></span>
+                            <span class="auth_buttons"><a href="{% url 'account_change_password' %}">Change Password</a></span>
+                            <span class="auth_buttons"><a href="{% url 'account_logout' %}">Logout</a></span>
+                        </div>
+                    {% else %}
+                        <div class="authentication_buttons">
+                            <span class="auth_buttons"><a href="{% url 'account_login' %}">Login</a></span>
+                            <span class="auth_buttons"><a href="{% url 'account_signup' %}">Signup</a></span>
+                        </div>
+                    {% endif %}
                 </div>
 
 
