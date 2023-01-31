@@ -5,7 +5,7 @@
  * Copyright 2011-2020 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
  */
-:root {
+ :root {
   --blue: #007bff;
   --indigo: #6610f2;
   --purple: #6f42c1;
@@ -782,8 +782,8 @@ pre code {
 .container-lg,
 .container-xl {
   width: 100%;
-  padding-right: 15px;
-  padding-left: 15px;
+  /* padding-right: 15px;
+  padding-left: 15px; */
   margin-right: auto;
   margin-left: auto;
 }
@@ -6064,6 +6064,7 @@ a.close.disabled {
 
 .carousel-inner {
   position: relative;
+  padding: 0 0.7rem;
   width: 100%;
   overflow: hidden;
 }
@@ -9389,6 +9390,7 @@ button.bg-dark:focus {
   text-align: left !important;
 }
 
+
 .text-right {
   text-align: right !important;
 }
@@ -9396,6 +9398,8 @@ button.bg-dark:focus {
 .text-center {
   text-align: center !important;
 }
+
+
 
 @media (min-width: 576px) {
   .text-sm-left {
@@ -9815,6 +9819,9 @@ a.text-dark:hover, a.text-dark:focus {
   }
   .mobile_view{
     display: flex !important;
+  }
+  .mobile-photo-section{
+    padding: 0 0.7rem;
   }
 }
 

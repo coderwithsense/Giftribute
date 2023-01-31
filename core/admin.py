@@ -2,7 +2,6 @@ from django.contrib import admin
 
 from .models import Item, Order, OrderItem, Reviews, ReviewAttribute, basket, hamperProduct, hamper, hamperItem, images, category, BillingAddress
 
-admin.site.register(Item)
 admin.site.register(OrderItem)
 admin.site.register(Reviews)
 admin.site.register(ReviewAttribute)
@@ -14,8 +13,11 @@ admin.site.register(images)
 admin.site.register(category)
 admin.site.register(BillingAddress)
 
+class ItemAdmin(admin.ModelAdmin):
+    list_display = ('title', 'price', 'category')
 class OrderAdmin(admin.ModelAdmin):
-    list_display = ('user', 'ordered', 'ordered_date')
-    list_filter = ('user', 'ordered')
+    list_display = ('user', 'ordered', 'ordered_date', 'delivered')
+    list_filter = ('user', 'ordered', 'delivered')
 
+admin.site.register(Item, ItemAdmin)
 admin.site.register(Order, OrderAdmin)

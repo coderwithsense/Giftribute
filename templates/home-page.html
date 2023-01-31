@@ -3,7 +3,7 @@
 
 {% block content %}
 
-  <div id="header-carousel" class="carousel slide" data-ride="carousel">
+<div id="header-carousel" class="carousel slide" data-ride="carousel">
     <div class="carousel-inner">
         <div class="carousel-item active" style="height: 410px;">
             <img class="img-fluid w-100" src="{% static 'one.png' %}" alt="Image">
@@ -28,6 +28,93 @@
 </div>
 
 
+{% comment %} <!-- photo section -->
+<div class="desktop_view container-fluid d-flex justify-content-between">
+    <!-- left side -->
+    <div class="d-flex flex-column">
+        <div class="pr-2 pt-2 parent">
+            <img class="photo" src="img/big1.jpg" alt="big-image">
+            <div class="child">
+                <div class="d-flex flex-column">
+                    <div>Timeless Love</div>
+                    <div style="font-size: 1.5vw; color:black;">Delivered on time</div>
+                    <button class="pic_buttons btn-dark">Explore Gifts</button>
+                </div>
+            </div>
+        </div>
+        <div class="d-flex justify-content-between">
+            <div class="pr-2 pt-2 pb-2 parent">
+                <img class="photo" src="./img/sm1.jpg" alt="normal-image">
+                <div class="child_1">
+                    <div>Tempting Cakes</div>
+                </div>
+            </div>
+            <div class="pr-2 pt-2 pb-2 parent">
+                <img class="photo" src="./img/sm2.jpg" alt="normal-image">
+                <div class="child_1">
+                    <div>Birthday Gifts</div>
+                </div>
+            </div>
+        </div>    
+    </div>
+    <!-- right side -->
+    <div class="d-flex flex-column">
+        <div class="pl-2 pt-2 parent">
+            <img class="photo" src="./img/big2.jpg" alt="big-image">
+            <div class="child">
+                <div class="d-flex flex-column">
+                    <div>Premium Flowers</div>
+                    <div style="font-size: 1.5vw; color: black;">Luxury delivered to the doorstep</div>
+                    <button class="pic_buttons btn-dark">Send Now</button>
+                </div>
+            </div>
+        </div>
+        <div class="d-flex justify-content-between ">
+            <div class="pl-2 pt-2 pb-3 parent">
+                <img class="photo" src="./img/sm3.jpg" alt="normal-image">
+                <div class="child_1">
+                    <div>Green Gifts</div>
+                </div>
+            </div>
+            <div class="pl-2 pt-2 pb-3 parent">
+                <img class="photo" src="./img/sm4.jpg" alt="normal-image">
+                <div class="child_1">
+                    <div>Same Day Delivery</div>
+                </div>
+            </div>
+        </div>    
+    </div>
+</div>
+<div class="container-fluid d-flex justify-content-between mobile_view">
+    <div class="d-flex flex-column">
+        <div class="pl-2 pt-2 parent">
+            <img class="photo" src="./img/big2.jpg" alt="big-image">
+            <div class="child">
+                <div class="d-flex flex-column">
+                    <div>Premium Flowers</div>
+                    <div style="font-size: 1.5vw; color: black;">Luxury delivered to the doorstep</div>
+                    <button class="pic_buttons btn-dark">Send Now</button>
+                </div>
+            </div>
+        </div>
+        <div class="d-flex justify-content-between ">
+            <div class="pl-2 pt-2 pb-3 parent">
+                <img class="photo" src="./img/sm3.jpg" alt="normal-image">
+                <div class="child_1">
+                    <div>Green Gifts</div>
+                </div>
+            </div>
+            <div class="pl-2 pt-2 pb-3 parent">
+                <img class="photo" src="./img/sm4.jpg" alt="normal-image">
+                <div class="child_1">
+                    <div>Same Day Delivery</div>
+                </div>
+            </div>
+        </div>    
+    </div>
+</div>
+<!-- photo section end   --> {% endcomment %}
+
   <!-- Products Start -->
   <div class="container-fluid pt-5">
       <div class="text-center mb-4">
@@ -37,38 +124,39 @@
           <!-- Item Card loop starts -->
         {% for item in object_list %}
           <div class="col-lg-3 col-md-6 col-sm-12 pb-1">
-              <div class="card product-item border-0 mb-4">
+              <div class="card product-item border-0 mb-4 ">
+                <div class="pr">
                   <div class="card-header product-img position-relative overflow-hidden bg-transparent border p-0">
                       <a href="{{ item.get_absolute_url }}">
-                        <img class="img-fluid w-500 h-500" src="{{ item.image.all.first.image.url }}" alt="">
+                        <img class="img-fluid w-100" src="{{ item.image.all.first.image.url }}" alt="">
                       </a>
                   </div>
-                  <div class="card-body border-left border-right text-center p-0 pt-4 pb-3">
-                      <h6 class="text-truncate mb-3">{{item.title}}</h6>
-                      <div class="d-flex justify-content-center">
-                          <h6>{{item.price}}</h6><h6 class="text-muted ml-2">
-                            {% if item.discount_price %}
-                                <del>{{item.discount_price}}</del>
-                            {% endif %}
-                          </h6>
-                      </div>
-                  </div>
-                  <div class="card-footer d-flex justify-content-between bg-light border">
-                      <a href="{{ item.get_absolute_url }}" class="btn btn-sm text-dark p-0"><i class="fas fa-eye text-primary mr-1"></i>View Detail</a>
-                      <a href="{{ item.get_add_to_cart_url }}" class="btn btn-sm text-dark p-0"><i class="fas fa-shopping-cart text-primary mr-1"></i>Add To Cart</a>
-                  </div>
+                  <div class="bottom">
+                    <div class="card-body border-left border-right text-center p-0 pt-4 pb-3">
+                        <h6 class="text-truncate mb-3">{{item.title}}</h6>
+                        <div class="d-flex justify-content-center">
+                            <h6>{{item.price}}</h6><h6 class="text-muted ml-2">
+                                {% if item.discount_price %}
+                                    <del>{{item.discount_price}}</del>
+                                {% endif %}
+                            </h6>
+                        </div>
+                    </div>
+                    <div class="card-footer d-flex justify-content-between bg-light border">
+                        <a href="{{ item.get_absolute_url }}" class="btn btn-sm text-dark p-0"><i class="fas fa-eye text-primary mr-1"></i>View Detail</a>
+                        <a href="{{ item.get_add_to_cart_url }}" class="btn btn-sm text-dark p-0"><i class="fas fa-shopping-cart text-primary mr-1"></i>Add To Cart</a>
+                    </div>
+                </div>
+                </div>
               </div>
           </div>
         {% endfor %}
           <!-- Item card loop ends -->
-        
       </div>
   </div>
   <!-- Products End -->
 
   <!--Pagination-->
-
-  
   {% if is_paginated %}
   <nav class="d-flex justify-content-center wow fadeIn">
     <ul class="pagination pg-blue">
