@@ -3,6 +3,27 @@
 
 {% block content %}
 
+<head>
+    <style>
+        .product-img img {
+          height: 275px;
+          width: 100px;
+        }
+      
+        @media (max-width: 767px) {
+          .product-img img {
+            height: 275px;
+            width: 75px;
+          }
+          .card {
+            padding-right: 2rem;
+            padding-left: 2rem;
+            padding-bottom: 1rem;
+          }
+        }
+      </style>
+</head>
+
 <div id="header-carousel" class="carousel slide" data-ride="carousel">
     <div class="carousel-inner">
         <div class="carousel-item active" style="height: 410px;">
@@ -27,96 +48,8 @@
     </a>
 </div>
 
-
-{% comment %} <!-- photo section -->
-<div class="desktop_view container-fluid d-flex justify-content-between">
-    <!-- left side -->
-    <div class="d-flex flex-column">
-        <div class="pr-2 pt-2 parent">
-            <img class="photo" src="img/big1.jpg" alt="big-image">
-            <div class="child">
-                <div class="d-flex flex-column">
-                    <div>Timeless Love</div>
-                    <div style="font-size: 1.5vw; color:black;">Delivered on time</div>
-                    <button class="pic_buttons btn-dark">Explore Gifts</button>
-                </div>
-            </div>
-        </div>
-        <div class="d-flex justify-content-between">
-            <div class="pr-2 pt-2 pb-2 parent">
-                <img class="photo" src="./img/sm1.jpg" alt="normal-image">
-                <div class="child_1">
-                    <div>Tempting Cakes</div>
-                </div>
-            </div>
-            <div class="pr-2 pt-2 pb-2 parent">
-                <img class="photo" src="./img/sm2.jpg" alt="normal-image">
-                <div class="child_1">
-                    <div>Birthday Gifts</div>
-                </div>
-            </div>
-        </div>    
-    </div>
-    <!-- right side -->
-    <div class="d-flex flex-column">
-        <div class="pl-2 pt-2 parent">
-            <img class="photo" src="./img/big2.jpg" alt="big-image">
-            <div class="child">
-                <div class="d-flex flex-column">
-                    <div>Premium Flowers</div>
-                    <div style="font-size: 1.5vw; color: black;">Luxury delivered to the doorstep</div>
-                    <button class="pic_buttons btn-dark">Send Now</button>
-                </div>
-            </div>
-        </div>
-        <div class="d-flex justify-content-between ">
-            <div class="pl-2 pt-2 pb-3 parent">
-                <img class="photo" src="./img/sm3.jpg" alt="normal-image">
-                <div class="child_1">
-                    <div>Green Gifts</div>
-                </div>
-            </div>
-            <div class="pl-2 pt-2 pb-3 parent">
-                <img class="photo" src="./img/sm4.jpg" alt="normal-image">
-                <div class="child_1">
-                    <div>Same Day Delivery</div>
-                </div>
-            </div>
-        </div>    
-    </div>
-</div>
-<div class="container-fluid d-flex justify-content-between mobile_view">
-    <div class="d-flex flex-column">
-        <div class="pl-2 pt-2 parent">
-            <img class="photo" src="./img/big2.jpg" alt="big-image">
-            <div class="child">
-                <div class="d-flex flex-column">
-                    <div>Premium Flowers</div>
-                    <div style="font-size: 1.5vw; color: black;">Luxury delivered to the doorstep</div>
-                    <button class="pic_buttons btn-dark">Send Now</button>
-                </div>
-            </div>
-        </div>
-        <div class="d-flex justify-content-between ">
-            <div class="pl-2 pt-2 pb-3 parent">
-                <img class="photo" src="./img/sm3.jpg" alt="normal-image">
-                <div class="child_1">
-                    <div>Green Gifts</div>
-                </div>
-            </div>
-            <div class="pl-2 pt-2 pb-3 parent">
-                <img class="photo" src="./img/sm4.jpg" alt="normal-image">
-                <div class="child_1">
-                    <div>Same Day Delivery</div>
-                </div>
-            </div>
-        </div>    
-    </div>
-</div>
-<!-- photo section end   --> {% endcomment %}
-
   <!-- Products Start -->
-  <div class="container-fluid pt-5">
+  <div class="container-fluid pt-5 card">
       <div class="text-center mb-4">
           <h2 class="section-title px-5"><span class="px-2">Trandy Products</span></h2>
       </div>

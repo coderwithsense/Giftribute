@@ -2,6 +2,28 @@
 {% load static %}
 
 {% block content %}
+
+<head>
+    <style>
+        .product-img img {
+          height: 275px;
+          width: 100px;
+        }
+      
+        @media (max-width: 767px) {
+          .product-img img {
+            height: 275px;
+            width: 75px;
+          }
+          .card {
+            padding-right: 2rem;
+            padding-left: 2rem;
+            padding-bottom: 1rem;
+          }
+        }
+      </style>
+</head>
+
 <!-- Products Start -->
 <div class="container-fluid pt-5">
     <div class="text-center mb-4">
