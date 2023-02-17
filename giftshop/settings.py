@@ -56,9 +56,12 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'core',
     'django.contrib.sites',
+
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
+    'allauth.socialaccount.providers.google', # for google auth
+
     'crispy_forms',
     'django.contrib.postgres',
     'django.contrib.postgres.search',
@@ -160,9 +163,23 @@ AUTHENTICATION_BACKENDS = (
     'django.contrib.auth.backends.ModelBackend',
     'allauth.account.auth_backends.AuthenticationBackend'
 )
-SITE_ID = 1
+SITE_ID = 0
 LOGIN_REDIRECT_URL = '/'
 ACCOUNT_EMAIL_VERIFICATION = 'none'
+LOGIN_REDIRECT_URL = '/'
 
 # crispy forms
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
+
+# social account providers
+SOCIALACCOUNT_PROVIDERS = {
+    'google': {
+        'SCOPE': [
+            'profile',
+            'email',
+        ],
+        'AUTH_PARAMS': {
+            'access_type': 'online',
+        }
+    }
+}
