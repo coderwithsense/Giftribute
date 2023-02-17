@@ -185,7 +185,7 @@ class Order(models.Model):
     ordered_date = models.DateTimeField()
     ordered = models.BooleanField(default=False)
     delivered = models.BooleanField(default=False)
-    
+    paid = models.BooleanField(default=False)
     
 
     def __str__(self):
