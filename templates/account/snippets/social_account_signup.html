@@ -1,0 +1,17 @@
+
+
+{% load i18n %}
+
+{% load socialaccount %}
+{% load account %}
+
+<div class="socialaccount_signup">
+    {% if socialaccount.providers %}
+        <p>{% blocktrans %}Or sign in using{% endblocktrans %}:</p>
+        <ul>
+            {% for provider in socialaccount.providers %}
+                <li><a href="{% provider_login_url provider.id %}">{{ provider.name }}</a></li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+</div>

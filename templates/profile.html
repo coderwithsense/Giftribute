@@ -50,7 +50,7 @@
             <div class="profile-container">
                 <div class="profile-leftpart">
                     <div class="image-container">
-                        <img src="./img/profile_image.jpg" alt="">
+                        <img src="{{ user.socialaccount_set.all.0.get_avatar_url }}" alt="">
                     </div>
                 </div>
                 <div class="profile-rightpart">
