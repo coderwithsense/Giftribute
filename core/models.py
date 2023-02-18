@@ -204,9 +204,10 @@ class Order(models.Model):
         return total
 
     def save(self, *args, **kwargs):
-        value = uuid.uuid1()
-        self.order_id = slugify(value, allow_unicode=True)
-        super().save(*args, **kwargs)
+        if(self.order_id == ''):
+            value = uuid.uuid1()
+            self.order_id = slugify(value, allow_unicode=True)
+            super().save(*args, **kwargs)
 
 class BillingAddress(models.Model):
     user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
