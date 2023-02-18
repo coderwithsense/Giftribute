@@ -9,7 +9,24 @@ from django.utils import timezone
 from django.contrib import messages
 from django.db.models import Q
 from .forms import checkoutForm
-from .utils import make_payment
+from .utils import make_payment, shipping_order
+from datetime import datetime
+
+# utils
+def get_order_details(order):
+    order_items = []
+    for item in order.items.all():
+        order_items.append({
+            "name": item.item.title,
+            "sku": item.item.slug,
+            "units": item.quantity,
+            "selling_price": str(item.item.price),
+            "discount": "",
+            "tax": "",
+            "hsn": ""
+        })
+    print(order_items)
+    return order_items
 
 class SearchResults(ListView):
     model = Item
@@ -100,6 +117,11 @@ class checkout(LoginRequiredMixin, View):
                 order.payment_id = response['payment_request']['id']
                 print(response)
                 order.save()
+
+                order_items = get_order_details(order=order)
+                shipping_response = shipping_order(order.order_id, order_date=datetime.now().strftime("%Y-%m-%d %H:%M"), name=name, surname=surname, address1=apartment_address, address2=street_address, city=city, pincode=zip, country='India', state=state, email_addr=email, phone_number="6358740371", order_items=order_items, amount_total=order.get_total(), length=10, breadth=10, height=10, weight=0.4)
+                print(shipping_response)
+
                 if 'payment_request' in response:
                     long_url = response['payment_request']['longurl']
                     return redirect(long_url)
@@ -113,6 +135,21 @@ class checkout(LoginRequiredMixin, View):
         except ObjectDoesNotExist:
             messages.warning(self.request, "Something Went Wrong")
             return redirect('core:order-summary')
+
+def thank_you(request):
+    # update COD to prepaid if done
+    # update paid in order
+    payment_request_id = request.GET.get('payment_request_id')
+    payment_status = request.GET.get('payment_status')
+    order = get_object_or_404(Order, payment_id=payment_request_id)
+    if payment_status=='Credit':
+        order.paid = True
+        order.save(update_fields=['paid'])
+    context = {
+        'payment_request_id': payment_request_id,
+        'order': order,
+    }
+    return render(request, "thank_you.html", context=context)
 
 class ItemDetailView(DetailView):
     model = Item
@@ -169,8 +206,7 @@ def confirm_order(request):
         return redirect("core:thank-you")
     return redirect("core:checkout-page")
 
-def thank_you(request):
-    return render(request, "thank_you.html")
+
 
 @login_required
 def remove_from_cart(request, slug):

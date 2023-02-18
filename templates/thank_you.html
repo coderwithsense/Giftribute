@@ -4,5 +4,6 @@
 {% load static %}
 
 {% block content %}
-<h1>Thank You for ordering with us. The pleasent gift is on it's way. Till then you can checkout our other <a href="{% url 'core:item-list' %}">products</h1>
+<h1>Thank You for ordering with us. The pleasent gift is on it's way. Till then you can checkout our other <a href="{% url 'core:item-list' %}">products</h1></a>
+<h2>Order Id: <a href = "https://giftributeshop.shiprocket.co/">{{order.order_id}}</a></h2>
 {% endblock content %}

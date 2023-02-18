@@ -187,7 +187,10 @@ class Order(models.Model):
     delivered = models.BooleanField(default=False)
     paid = models.BooleanField(default=False)
     payment_id = models.CharField(max_length=40, blank=True, null=True)
-    
+    order_id = models.SlugField(
+        default='',
+        editable=True,
+        blank=True)
 
     def __str__(self):
         return self.user.username
@@ -199,6 +202,11 @@ class Order(models.Model):
         # if self.coupon:
         #     total -= self.coupon.amount
         return total
+
+    def save(self, *args, **kwargs):
+        value = uuid.uuid1()
+        self.order_id = slugify(value, allow_unicode=True)
+        super().save(*args, **kwargs)
 
 class BillingAddress(models.Model):
     user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
