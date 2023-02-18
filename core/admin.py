@@ -16,8 +16,8 @@ admin.site.register(BillingAddress)
 class ItemAdmin(admin.ModelAdmin):
     list_display = ('title', 'price', 'category')
 class OrderAdmin(admin.ModelAdmin):
-    list_display = ('user', 'ordered', 'ordered_date', 'delivered')
-    list_filter = ('user', 'ordered', 'delivered')
+    list_display = ('user', 'ordered', 'delivered', 'paid', 'ordered_date')
+    list_filter = ('user', 'ordered', 'delivered', 'paid')
 
 admin.site.register(Item, ItemAdmin)
 admin.site.register(Order, OrderAdmin)

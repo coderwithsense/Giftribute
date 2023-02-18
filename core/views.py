@@ -9,6 +9,7 @@ from django.utils import timezone
 from django.contrib import messages
 from django.db.models import Q
 from .forms import checkoutForm
+from .utils import make_payment
 
 class SearchResults(ListView):
     model = Item
@@ -95,11 +96,20 @@ class checkout(LoginRequiredMixin, View):
                 billing_address.save()
                 order.BillingAddress = billing_address
                 order.ordered = True
+                response = make_payment(amount=order.get_total(), comment=f"Order for {name} {surname} of amount {order.get_total()}", name=name, email=email, phone="6358740371", redirect_url=f"http://{self.request.META['HTTP_HOST']}/thank_you/")
+                order.payment_id = response['payment_request']['id']
+                print(response)
                 order.save()
-                return redirect("core:thank-you")
+                if 'payment_request' in response:
+                    long_url = response['payment_request']['longurl']
+                    return redirect(long_url)
+                else:
+                    # Handle the error condition
+                    print(response)
+                return redirect(long_url)
             print("DONEEEE")
             messages.warning(self.request, "Something Went Wrong")
-            return redirect('core:checkout')
+            return redirect('core:checkout-page')
         except ObjectDoesNotExist:
             messages.warning(self.request, "Something Went Wrong")
             return redirect('core:order-summary')
@@ -107,15 +117,6 @@ class checkout(LoginRequiredMixin, View):
 class ItemDetailView(DetailView):
     model = Item
     template_name = "product-page.html"
-
-# class SearchResultsList(ListView):
-#     model = Item
-#     context_object_name = "object"
-#     template_name = "search.html"
-
-#     def get_queryset(self):
-#         query = self.request.GET.get("q")
-#         return Quote.objects.filter(quote__search=query)
 
 @login_required
 def view_profile(request):

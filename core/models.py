@@ -186,6 +186,7 @@ class Order(models.Model):
     ordered = models.BooleanField(default=False)
     delivered = models.BooleanField(default=False)
     paid = models.BooleanField(default=False)
+    payment_id = models.CharField(max_length=40, blank=True, null=True)
     
 
     def __str__(self):
