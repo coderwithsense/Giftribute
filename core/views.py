@@ -112,7 +112,6 @@ class checkout(LoginRequiredMixin, View):
                 )
                 billing_address.save()
                 order.BillingAddress = billing_address
-                order.ordered = True
                 response = make_payment(amount=order.get_total(), comment=f"Order for {name} {surname} of amount {order.get_total()}", name=name, email=email, phone="6358740371", redirect_url=f"http://{self.request.META['HTTP_HOST']}/thank_you/")
                 order.payment_id = response['payment_request']['id']
                 print(response)
@@ -144,7 +143,8 @@ def thank_you(request):
     order = get_object_or_404(Order, payment_id=payment_request_id)
     if payment_status=='Credit':
         order.paid = True
-        order.save(update_fields=['paid'])
+        order.ordered = True
+        order.save()
     context = {
         'payment_request_id': payment_request_id,
         'order': order,
