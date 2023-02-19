@@ -21,18 +21,11 @@ def make_payment(amount, comment, name, email, phone, redirect_url):
     return response
 
 def get_payment(payment_id):
-    headers = { 
-        "Authorization": "Bearer y70kak2K0Rg7J4PAL8sdW0MutnGJEl"
-    }
-    response = requests.get(
-    f"https://api.instamojo.com/v2/payments/{payment_id}/", 
-    headers=headers
-    )
+    api = Instamojo(api_key=instamojo_private_api_key, auth_token=instamojo_private_auth_key)
+    response = api.payment_request_status(payment_id)
     return response
 
-# print(get_payment('MOJO3218105Q71586227'))
-
-def shipping_order(order_id, order_date, name, surname, address1, address2, city, pincode, country, state, email_addr, phone_number, order_items, amount_total, length, breadth, height, weight, payment_method="COD", comment="Order", pickup_location="Primary"):
+def shipping_order(order_id, order_date, name, surname, address1, address2, city, pincode, country, state, email_addr, phone_number, order_items, amount_total, length, breadth, height, weight, payment_method="COD", comment="Order", pickup_location="Noida"):
     url = "https://apiv2.shiprocket.in/v1/external/orders/create/adhoc"
 
     payload = json.dumps({
@@ -104,50 +97,4 @@ def update_order_payment(order_id):
     if response.status_code == 200:
         print(f"Order payment for order {order_id} has been updated to Prepaid.")
     else:
-        print(f"Failed to update order payment for order {order_id}. Status code: {response.status_code}")
-
-# Define test data
-order_id = str(uuid.uuid1())
-order_date = "2022-12-13 12:00:00"
-name = "John"
-surname = "Doe"
-address1 = "123 Main St"
-address2 = ""
-city = "Anytown"
-pincode = "12345"
-country = "IN"
-state = "KA"
-email_addr = "johndoe@example.com"
-phone_number = "9876543210"
-order_items = [
-    {
-        "name": "Product 1",
-        "sku": "SKU-001",
-        "units": 1,
-        "selling_price": "10.00",
-        "discount": "",
-        "tax": "",
-        "hsn": 1234
-    },
-    {
-        "name": "Product 2",
-        "sku": "SKU-002",
-        "units": 2,
-        "selling_price": "20.00",
-        "discount": "",
-        "tax": "",
-        "hsn": 5678
-    }
-]
-amount_total = "50.00"
-length = 10
-breadth = 20
-height = 30
-weight = 2.5
-
-# Call the order function with test data
-# order_response = order(order_id, order_date, name, surname, address1, address2, city, pincode, country, state, email_addr, phone_number, order_items, amount_total, length, breadth, height, weight)
-
-# response = make_payment(9, "Payment", "Himanshu", "himanshupoptani12@gmail.com", 6358740371, "http://localhost:8000/thank-you")
-
-# update_order_payment('f7aa4de2-af57-11ed-afe1-defb076d99ce')
+        print(f"Failed to update order payment for order {order_id}. Status code: {response.status_code}, response")

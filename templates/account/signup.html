@@ -1,6 +1,7 @@
 {% extends "base.html" %}
 {% load i18n %}
 {% load crispy_forms_tags %}
+{% load socialaccount %}
 
 {% block head_title %}{% trans "Signup" %}{% endblock %}
 
@@ -19,6 +20,7 @@
               <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
               {% endif %}
               <button class='btn btn-primary' type="submit">{% trans "Sign Up" %} &raquo;</button>
+              <a class='btn btn-primary' href="{% provider_login_url 'google' %}">Google Registration</a>
             </form>
           </div>
         </div>

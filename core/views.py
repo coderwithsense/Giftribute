@@ -9,7 +9,7 @@ from django.utils import timezone
 from django.contrib import messages
 from django.db.models import Q
 from .forms import checkoutForm
-from .utils import make_payment, shipping_order
+from .utils import make_payment, shipping_order, get_payment
 from datetime import datetime
 
 # utils
@@ -58,17 +58,6 @@ class OrderSummaryView(LoginRequiredMixin, View):
             return redirect("/")
 
 class checkout(LoginRequiredMixin, View):
-    # def get(self, *args, **kwargs):
-    #     try:
-    #         order = Order.objects.get(user=self.request.user, ordered=False)
-    #         context = {
-    #             'object': order,
-    #         }
-    #         return render(self.request, "checkout.html", context=context)
-    #     except ObjectDoesNotExist:
-    #         messages.error(self.request, "You do not have anything in cart")
-    #         return redirect("/")
-
     def get(self, *args, **kwargs):
         try:
             order = Order.objects.get(user=self.request.user, ordered=False)
@@ -114,6 +103,7 @@ class checkout(LoginRequiredMixin, View):
                 order.BillingAddress = billing_address
                 response = make_payment(amount=order.get_total(), comment=f"Order for {name} {surname} of amount {order.get_total()}", name=name, email=email, phone="6358740371", redirect_url=f"http://{self.request.META['HTTP_HOST']}/thank_you/")
                 order.payment_id = response['payment_request']['id']
+                order.ordered_date = datetime.now()
                 print(response)
                 order.save()
 
@@ -139,9 +129,9 @@ def thank_you(request):
     # update COD to prepaid if done
     # update paid in order
     payment_request_id = request.GET.get('payment_request_id')
-    payment_status = request.GET.get('payment_status')
+    payment_status = get_payment(payment_request_id)['success']
     order = get_object_or_404(Order, payment_id=payment_request_id)
-    if payment_status=='Credit':
+    if payment_status:
         order.paid = True
         order.ordered = True
         order.save()
