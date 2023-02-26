@@ -3,3 +3,4 @@ venv
 cert.pem
 *.pyc
 .env
+__pycache__
