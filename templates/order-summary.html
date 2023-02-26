@@ -20,7 +20,7 @@
                 <tbody class="align-middle">
                     {% for order_item in object.items.all %}
                         <tr>
-                            <td class="align-middle"><img src="img/product-1.jpg" alt="" style="width: 50px;">{{order_item.item.title}}</td>
+                            <td class="align-middle"><img src="{{order_item.item.image.all.first.image.url}}" alt="{{order_item.item.title}}" style="width: 50px;">{{order_item.item.title}}</td>
                             
                             {% if order_item.item.discount_price %}
                                 <td class="align-middle">₹{{order_item.item.discount_price}} (Amount saved: {{order_item.get_saved_amount}})</td>

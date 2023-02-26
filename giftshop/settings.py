@@ -34,8 +34,11 @@ ALLOWED_HOSTS = ['*']
 
 # CORS_ALLOW_CREDENTIALS = True
 
+# Important
+CORS_ALLOWED_ORIGINS = ['https://giftribute.com']
 
-# CSRF_TRUSTED_ORIGINS = ['https://0e80-2401-4900-5d86-892e-d115-4da2-c8b1-b59a.ngrok.io/']
+
+CSRF_TRUSTED_ORIGINS = ['https://giftribute.com']
 
 # CORS_REPLACE_HTTPS_REFERER = True
 

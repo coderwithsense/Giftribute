@@ -14,6 +14,7 @@ admin.site.register(category)
 admin.site.register(BillingAddress)
 
 class ItemAdmin(admin.ModelAdmin):
+    search_fields = ('title',)
     list_display = ('title', 'price', 'category')
 class OrderAdmin(admin.ModelAdmin):
     list_display = ('user', 'ordered', 'delivered', 'paid', 'ordered_date')

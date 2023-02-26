@@ -1,12 +1,13 @@
 import requests
 import json
-import uuid
 from instamojo_wrapper import Instamojo
+from dotenv import load_dotenv
+import os 
 
-instamojo_private_api_key = "4cebf802f2b59fd703839ba470e07edd"
-instamojo_private_auth_key = "666e517be92e43428bdc4c743e9dd11b"
-delhivery_api_key = "e08d91719905b21264bd030ea76b09e383b44915"
-shiprocket_api_key = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOjI0ODUxMTEsImlzcyI6Imh0dHBzOi8vYXBpdjIuc2hpcHJvY2tldC5pbi92MS9leHRlcm5hbC9hdXRoL2xvZ2luIiwiaWF0IjoxNjc2NjQ5MjI1LCJleHAiOjE2Nzc1MTMyMjUsIm5iZiI6MTY3NjY0OTIyNSwianRpIjoid3JCQ0xjTXNXZnN3Y2xKWSJ9.IVgKWKAvJhF28ENZBf0l3M8nwNwfUQv2HHP1xBlB4ag"
+instamojo_private_api_key = os.getenv('instamojo_private_api_key')
+instamojo_private_auth_key = os.getenv('instamojo_private_auth_key')
+delhivery_api_key = os.getenv('delhivery_api_key')
+shiprocket_api_key = os.getenv('shiprocket_api_key')
 
 def make_payment(amount, comment, name, email, phone, redirect_url):
     api = Instamojo(api_key=instamojo_private_api_key, auth_token=instamojo_private_auth_key, endpoint='https://www.instamojo.com/api/1.1/')
